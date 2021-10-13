@@ -1,0 +1,18 @@
+$ git clone https://github.com/TomasMastra/tp_laboratorio_1.git   //para traer el repositorio
+
+SE CREA UNA CARPETA CON EL REPOSITORIO
+
+
+EN LA CARPETA O EN CUALQUIER CARPETA --
+
+$git add .
+
+EL PUNTO PARA AGREGAR TODO
+
+$git status
+
+PARA VER LO QUE VAN A SUBIR
+
+$git commit -m "Probando"
+
+$git push
