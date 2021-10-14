@@ -26,6 +26,7 @@ int inicializar(eEstadia estadia[], ePerro perro[], int len, int flag, int id)
 
 
 
+
 	if(flag ==0)
 	{
 		estadia_inicializar(estadia, len);
