@@ -25,8 +25,8 @@ typedef struct
 {
 
 	int id;
-	char nombreDuenio[21];
-	int telefonoContacto;
+
+	int idDuenio;
 	int idPerro;
 	eFecha fecha;
 

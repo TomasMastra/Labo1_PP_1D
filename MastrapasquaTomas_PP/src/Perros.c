@@ -16,6 +16,7 @@
 #include "Estadia.h"
 #include "Perros.h"
 #include "Funciones.h"
+#include "duenio.h"
 #include "Nexo.h"
 
 #define P 10
@@ -50,6 +51,7 @@ void harcodearPerros(ePerro perro[], int lenPerro)
 		char razas[][21] = {"Sharpei", "Golden", "Galgo"};
 		int edad[] = {2, 12, 13};
 		int isEmpty[] = {1,1,1};
+		int estadias[] = {0,0,0};
 
 		for(i=0; i<3; i++)
 		{
@@ -58,6 +60,8 @@ void harcodearPerros(ePerro perro[], int lenPerro)
 			strcpy(perro[i].raza, razas[i]);
 			perro[i].edad = edad[i];
 			perro[i].isEmpty = isEmpty[i];
+			perro[i].cantidadEstadias = estadias[i];
+			perro[i].estadia = estadias[i];
 
 		}
 
@@ -65,6 +69,7 @@ void harcodearPerros(ePerro perro[], int lenPerro)
 
 
 }
+
 
 
 void perro_listar(ePerro perro[], int lenPerro)
@@ -98,6 +103,33 @@ void perro_listarUno(ePerro perro)
 	printf("%-5d %-20s %-20s %-20d\n", perro.id, perro.nombre, perro.raza, perro.edad);
 
 }
+
+int perro_buscarID(ePerro perro[], int len, int id)
+	{
+
+		int i = -1;
+		int index = -1;
+
+
+		for(i=0;i<len;i++)
+			{
+				if(perro[i].id == id)
+				{
+
+
+					index = i;
+					break;
+
+
+
+				}
+
+
+
+		    }
+
+		return index;
+	}
 
 void perro_calcularPromedioEdad(ePerro perro[], int lenPerro)
 {

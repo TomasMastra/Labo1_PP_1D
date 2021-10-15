@@ -17,12 +17,15 @@
 #include "Estadia.h"
 #include "Perros.h"
 #include "Funciones.h"
+#include "duenio.h"
 #include "Nexo.h"
+
 
 
 
 #define X 15
 #define P 10
+#define D 15
 
 int main(void) {
 
@@ -30,16 +33,19 @@ int main(void) {
 
 
 	 int flag = 0;
-	 //int flagPerro = 0;
+	// int flagPerro = 0;
 	 int option;
 	 int len = X;
 	 int lenPerro = P;
+	 int lenDuenio = D;
 
 	 eEstadia estadia[X];
-	 ePerro perro[X];
+	 ePerro perro[P];
+	 eDuenio duenio[D];
 
 	 int id = 100000;
 	 //int idPerro = 7002;
+	 int idDuenio = 30000;
 
 
 
@@ -47,7 +53,18 @@ int main(void) {
 	 perro_inicializar(perro, lenPerro);
 	 harcodearPerros(perro, lenPerro);
 
+	 duenio_inicializar(duenio,  lenDuenio);
+	 duenio_harcodear(duenio,  lenDuenio);
+
 	estadia_inicializar(estadia, len);
+
+	/*
+	 * 1.terminado
+	 * 2.terminado
+	 * 3.terminado
+	 *
+	 *
+	 */
 
 
 
@@ -60,6 +77,8 @@ int main(void) {
 		 							 "4. LISTADO ordenado por fecha\n"
 		 							 "5. LISTADO perros\n"
 		 							 "6. PROMEDIO edad perros\n"
+					 	 	 	 	 "7. El perro que tiene mas estadias reservadas\n"
+					                 "8. Listado de perros con sus estadias reservadas "
 		 							 "10. SALIR\n"
 		 							 "-------------------------------------\n",
 		 							 "Ingrese una opcion: "
@@ -81,14 +100,12 @@ int main(void) {
 
 
 
-		 				 //harcodearPerros(perro, lenPerro);
 
-		 				 	 //perro_inicializar(perro, lenPerro);
-
-		 					 flag = inicializar(estadia, perro, len, flag, id);
+		 					 flag = inicializar(estadia, perro, duenio,len, flag, id, lenDuenio,idDuenio, lenPerro);
 
 		 					 id++;
-		 					//flag = 1;
+		 					 idDuenio++;
+
 
 
 
@@ -123,7 +140,7 @@ int main(void) {
 
 		 				if(flag == 1)
 		 				{
-		 					 modificarEstadia(estadia, perro, len);
+		 					 modificarEstadia(estadia, perro, duenio, len,   lenPerro,  lenDuenio);
 		 				}else
 		 				{
 
@@ -144,6 +161,9 @@ int main(void) {
 		 					if(flag == 1)
 		 					{
 		 					estadia_ordenar(estadia,  lenPerro);
+
+		 					 duenio_listar(duenio, lenDuenio);
+
 		 					}else
 		 					{
 
@@ -187,6 +207,19 @@ int main(void) {
 
 		 			break;
 
+		 		case 7:
+
+
+		 			 buscarMasEstadias(estadia, perro,  lenPerro);
+
+
+		 			break;
+
+		 		case 8:
+
+		 			 mostrarPerrosConEstadias(perro, estadia, lenPerro, len);
+
+		 			break;
 
 
 

@@ -22,6 +22,9 @@ typedef struct
 	char raza[21];
 	int edad;
 
+	int estadia;
+	int cantidadEstadias;
+
 	int isEmpty;
 
 
@@ -32,13 +35,13 @@ void perro_inicializar(ePerro perro[], int lenPerro);
 
 
 
-
 void perro_listar(ePerro perro[], int len);//Esta funcion llama a la funcion de listarUno con un for para que se muestren todos los perros
 void perro_listarUno(ePerro perro);//esta funcion muestra un perro, se usa para la funcion de mostar todos
 
 
 
 void perro_calcularPromedioEdad(ePerro perro[], int lenPerro);//Esta funcion suma las edades para buscar el promedio de sus edades
+int perro_buscarID(ePerro perro[], int lenPerro, int idIngresado);
 
 
 

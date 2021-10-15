@@ -16,7 +16,9 @@
 #include "Estadia.h"
 #include "Perros.h"
 #include "Funciones.h"
+#include "duenio.h"
 #include "Nexo.h"
+
 
 
 #define EMPTY -1
@@ -49,8 +51,7 @@ void estadia_pedirDatos(eEstadia estadia[], int i, int id)
 
 
 		estadia[i].id = id;
-		 getString(estadia[i].nombreDuenio, "Ingrese el nombre del duenio: ", "ERROR, solo letras y menos de 20 caracteres, reingrese: ", 21);
-		 getInt(&estadia[i].telefonoContacto, "Ingrese su numero:\n","Error, ingrese su numero:\n", 1000000000, 1500000000);
+
 
 
 		 estadia_pedirFecha(estadia,  i);
@@ -244,7 +245,7 @@ void estadia_cancelar(eEstadia estadia[], int len)
 	void estadia_listarUno(eEstadia estadia)
 	{
 
-		printf("%-10d %-20s %-20d %-20d %d/%d/%d\n", estadia.id, estadia.nombreDuenio, estadia.telefonoContacto, estadia.idPerro, estadia.fecha.dia, estadia.fecha.mes, estadia.fecha.anio);
+		printf("%-10d %-20d %d/%d/%d %-50d\n", estadia.id,  estadia.idPerro, estadia.fecha.dia, estadia.fecha.mes, estadia.fecha.anio, estadia.idDuenio);
 
 
 	}
@@ -257,8 +258,8 @@ void estadia_cancelar(eEstadia estadia[], int len)
 		int i;
 
 
-			printf("\n\n\n"
-					   "%-10s %-20s %-20s %-20s %-20s\n", "ID", "Nombre duenio", "Telefono", "ID perro", "Fecha");
+			printf("Listado de estadias\n\n\n"
+					   "%-10s %-20s %s %-50s\n\n", "ID",  "ID perro", "Fecha", "ID duenio");
 
 
 
@@ -325,7 +326,7 @@ void estadia_ordenar(eEstadia estadia[], int len)
 											if(estadia[i].fecha.dia == estadia[j].fecha.dia)
 											{
 
-												if(strcmp(estadia[i].nombreDuenio, estadia[j].nombreDuenio) == 1)
+
 												{
 
 													auxEstadia = estadia[i];
@@ -366,8 +367,7 @@ void estadia_harcodear(eEstadia estadia[], int len)
 
 		int i;
 		int ids[] = {100000, 100001, 100002, 100003, 100004};
-		char nombres[][21] = {"Joaquin", "Walter", "Gonzalo", "Antonio", "Maria"};
-		int telefono[] = {1000000000, 1200000000, 1300000000, 1200000000};
+
 		int anio[] = {2000, 2000, 2003, 2000, 2021};
 		int mes[] = {2, 2, 2, 1, 8};
 		int dia[] = {24, 24, 24, 25, 12};
@@ -375,8 +375,7 @@ void estadia_harcodear(eEstadia estadia[], int len)
 		for(i=0; i<len; i++)
 		{
 			estadia[i].id = ids[i];
-			strcpy(estadia[i].nombreDuenio, nombres[i]);
-			estadia[i].telefonoContacto = telefono[i];
+
 
 			estadia[i].fecha.anio = anio[i];
 			estadia[i].fecha.mes = mes[i];

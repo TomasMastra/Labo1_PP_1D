@@ -16,7 +16,11 @@
 #include "Estadia.h"
 #include "Perros.h"
 #include "Funciones.h"
+#include "duenio.h"
 #include "Nexo.h"
+
+
+
 
 
 
