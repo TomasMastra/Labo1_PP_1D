@@ -21,8 +21,8 @@
 
 
 
-#define X 5
-#define P 3
+#define X 15
+#define P 10
 
 int main(void) {
 
@@ -30,6 +30,7 @@ int main(void) {
 
 
 	 int flag = 0;
+	 //int flagPerro = 0;
 	 int option;
 	 int len = X;
 	 int lenPerro = P;
@@ -38,9 +39,15 @@ int main(void) {
 	 ePerro perro[X];
 
 	 int id = 100000;
+	 //int idPerro = 7002;
 
 
 
+
+	 perro_inicializar(perro, lenPerro);
+	 harcodearPerros(perro, lenPerro);
+
+	estadia_inicializar(estadia, len);
 
 
 
@@ -72,6 +79,11 @@ int main(void) {
 		 			case 1:
 
 
+
+
+		 				 //harcodearPerros(perro, lenPerro);
+
+		 				 	 //perro_inicializar(perro, lenPerro);
 
 		 					 flag = inicializar(estadia, perro, len, flag, id);
 
@@ -131,7 +143,7 @@ int main(void) {
 
 		 					if(flag == 1)
 		 					{
-		 					estadia_ordenar(estadia,  len);
+		 					estadia_ordenar(estadia,  lenPerro);
 		 					}else
 		 					{
 
@@ -147,17 +159,13 @@ int main(void) {
 
 		 		case 5:
 
-		 			if(flag == 1)
-		 			{
-		 			harcodearPerros(perro,  len);
+
 		 			 perro_listar(perro, lenPerro);
-		 			}else
-		 			{
-
-			 			printf("Ingrese una estadia\n");
 
 
-		 			}
+
+
+
 
 
 
@@ -171,20 +179,14 @@ int main(void) {
 
 		 		case 6:
 
-		 			if(flag == 1)
-		 			{
-		 				harcodearPerros(perro,  len);
+
 		 				perro_calcularPromedioEdad(perro, lenPerro);
-		 			}else
-		 			{
 
-			 			printf("Ingrese una estadia\n");
-
-		 			}
 
 
 
 		 			break;
+
 
 
 

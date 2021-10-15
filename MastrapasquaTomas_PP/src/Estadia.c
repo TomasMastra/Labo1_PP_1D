@@ -20,7 +20,7 @@
 
 
 #define EMPTY -1
-#define X 5
+#define X 15
 
 void estadia_inicializar(eEstadia estadia[], int len)
 {

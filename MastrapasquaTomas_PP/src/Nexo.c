@@ -14,7 +14,8 @@
 #include "Nexo.h"
 
 #define EMPTY -1
-#define X 5
+#define X 15
+#define P 10
 
 
 int inicializar(eEstadia estadia[], ePerro perro[], int len, int flag, int id)
@@ -27,10 +28,11 @@ int inicializar(eEstadia estadia[], ePerro perro[], int len, int flag, int id)
 
 
 
-	if(flag ==0)
-	{
-		estadia_inicializar(estadia, len);
-		harcodearPerros(perro,  len);
+
+
+
+
+
 
 		index = estadia_buscarLibre(estadia, len);
 
@@ -40,13 +42,16 @@ int inicializar(eEstadia estadia[], ePerro perro[], int len, int flag, int id)
 
 
 
-				printf("Cargo correctamente el programa...\n\n");
+			 //harcodearPerros(perro, P);
+
+				printf("Cargo correctamente el programa..\n\n");
 
 				flag = 1;
 
 
 				validarIdPerro(estadia, perro,  len,  index);
 				estadia_pedirDatos(estadia,  index,  id);
+				//id++;
 
 
 
@@ -57,21 +62,7 @@ int inicializar(eEstadia estadia[], ePerro perro[], int len, int flag, int id)
 
 			printf("No hay espacio, elimine una estadia\n");
 		}
-	}else
-		if(flag==1)
-	{
 
-		index = estadia_buscarLibre(estadia, len);
-
-
-
-		//id++;
-
-		validarIdPerro(estadia, perro,  len,  index);
-		estadia_pedirDatos(estadia,  index,  id);
-
-
-	}
 
 
 
@@ -98,7 +89,9 @@ void validarIdPerro(eEstadia estadia[], ePerro perro[], int len, int index)
 
 
 
-	perro_listar(perro,  len);
+	 perro_listar(perro, P);
+
+
 
 
 	if(index!=EMPTY)

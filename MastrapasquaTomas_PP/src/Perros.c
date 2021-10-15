@@ -18,25 +18,47 @@
 #include "Funciones.h"
 #include "Nexo.h"
 
-#define P 3
+#define P 10
+#define EMPTY -1
 
-
-
-void harcodearPerros(ePerro perro[], int len)
+void perro_inicializar(ePerro perro[], int lenPerro)
 {
+	int i;
 
+	for(i=0;i<lenPerro;i++)
+	{
+
+
+		perro[i].isEmpty = EMPTY;
+
+
+	}
+
+}
+
+
+
+
+
+
+void harcodearPerros(ePerro perro[], int lenPerro)
+{
+	lenPerro =P;
 		int i;
 		int ids[] = {7000, 7001, 7002};
 		char nombres[][21] = {"Lobo", "Shelia", "Reina"};
 		char razas[][21] = {"Sharpei", "Golden", "Galgo"};
 		int edad[] = {2, 12, 13};
+		int isEmpty[] = {1,1,1};
 
-		for(i=0; i<len; i++)
+		for(i=0; i<3; i++)
 		{
 			perro[i].id = ids[i];
 			strcpy(perro[i].nombre, nombres[i]);
 			strcpy(perro[i].raza, razas[i]);
 			perro[i].edad = edad[i];
+			perro[i].isEmpty = isEmpty[i];
+
 		}
 
 
@@ -56,8 +78,11 @@ void perro_listar(ePerro perro[], int lenPerro)
 
 	for(i=0;i<lenPerro;i++)
 	{
+		if(perro[i].isEmpty  != EMPTY)
+		{
 
 		 perro_listarUno(perro[i]);
+		}
 
 
 	}
@@ -78,7 +103,9 @@ void perro_calcularPromedioEdad(ePerro perro[], int lenPerro)
 
 	float promedio;
 	int i;
-	int sumaEdades;
+	float sumaEdades;
+
+	int cantidadPerros = 0;
 
 	sumaEdades = 0;
 	promedio = 0;
@@ -86,17 +113,19 @@ void perro_calcularPromedioEdad(ePerro perro[], int lenPerro)
 
 	for(i=0;i<lenPerro;i++)
 	{
-		if(perro[i].edad<20)
+		if(perro[i].isEmpty != EMPTY)
 		{
+			printf("Hola\n");
 
 		sumaEdades = sumaEdades + perro[i].edad;
+		cantidadPerros++;
 
 		}
 
 	}
 
 
-	promedio = sumaEdades/lenPerro;
+	promedio = sumaEdades/cantidadPerros;
 
 	printf("Promedio de edades de los perros: %f\n", promedio);
 
