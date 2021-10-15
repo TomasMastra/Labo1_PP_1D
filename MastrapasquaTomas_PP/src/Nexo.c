@@ -96,7 +96,7 @@ void validarIdPerro(eEstadia estadia[], ePerro perro[], int len, int index, int 
 {
 
 	int number;
-	int i;
+	int i = 0;
 	len = X;
 
 
@@ -126,13 +126,15 @@ void validarIdPerro(eEstadia estadia[], ePerro perro[], int len, int index, int 
 
 
 				break;
-			}
+			}else
 			if(number!= perro[i].id)
 			{
 				if(i == len -1)
 				{
 
 				printf("No cargaste nada, Puedes modificarla despues!!\n");
+				estadia[index].idPerro = 0;
+
 
 
 				break;
@@ -142,10 +144,14 @@ void validarIdPerro(eEstadia estadia[], ePerro perro[], int len, int index, int 
 			}
 	}
 		}else
-		if(index==EMPTY)
+		if(index == EMPTY)
 	{
 
 			printf("\nNo hay espacio!!\n");
+
+			estadia[i].idPerro = 0;
+
+
 
 	}
 
@@ -287,10 +293,10 @@ int buscarMasEstadias(eEstadia estadia[], ePerro perro[], int lenPerro)
 {
 
 	int i;
-	int cantidadEstadias[P];
+	//int cantidadEstadias[P];
 	int masEstadias = 0;
 	int flagEstadias = 0;
-	int perroMasEstadias;
+	//int perroMasEstadias = 0;
 
 
 
@@ -338,7 +344,7 @@ int buscarMasEstadias(eEstadia estadia[], ePerro perro[], int lenPerro)
 	 mostrarMasEstadias(perro, lenPerro, masEstadias);
 
 
-	return perroMasEstadias;
+	return masEstadias;
 
 
 }
