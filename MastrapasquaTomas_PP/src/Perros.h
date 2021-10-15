@@ -31,6 +31,8 @@ void harcodearPerros(ePerro perro[], int lenPerro);//Esta funcion harcodea los p
 void perro_inicializar(ePerro perro[], int lenPerro);
 
 
+
+
 void perro_listar(ePerro perro[], int len);//Esta funcion llama a la funcion de listarUno con un for para que se muestren todos los perros
 void perro_listarUno(ePerro perro);//esta funcion muestra un perro, se usa para la funcion de mostar todos
 

@@ -66,6 +66,7 @@ void harcodearPerros(ePerro perro[], int lenPerro)
 
 }
 
+
 void perro_listar(ePerro perro[], int lenPerro)
 {
 
@@ -115,7 +116,6 @@ void perro_calcularPromedioEdad(ePerro perro[], int lenPerro)
 	{
 		if(perro[i].isEmpty != EMPTY)
 		{
-			printf("Hola\n");
 
 		sumaEdades = sumaEdades + perro[i].edad;
 		cantidadPerros++;
